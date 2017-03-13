@@ -9,11 +9,16 @@ some images (renders and/or photos) and the source files (SCAD or Fusion 360).
 Please refer to the various subfolder for the individual models and further
 documentation.
 
-## Dislaimer
+## License
+
+Unless otherwise stated, all files in this repository are licensed under
+the [GNU General Public License 3](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
+## Disclaimer
 
 I designed the models contained in this repository for my own personal use.
 Feel free to use them within the bounds of the GPL v3, but
 be aware that I do not guarantee that you will be able to print these files
 properly. I cannot be held responsible for failed prints and other damages.
 
-Use these files at your own risk.
+**Use these files at your own risk!**
