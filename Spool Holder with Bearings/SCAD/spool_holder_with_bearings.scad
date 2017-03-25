@@ -135,7 +135,7 @@ module assembly() {
     part_spoolCone();
     translate([0, 0, -washerHeight]) part_bottomWasher();
     translate([0, 0, effectiveConeHeight + washerHeight]) rotate([0, 180, 0]) part_topWasher();
-    translate([0, 0, -6]) part_bearingClampingSleeve();
+    translate([0, 0, -6.5]) part_bearingClampingSleeve();
 }
 
 /**
@@ -175,7 +175,7 @@ module part_bottomWasher() {
         translate([0, 0, washerHeight - 1]) cylinder(h = 1.01, d = bearingDiameter - 2);
         
         // Add countersunk screw holes
-        sub_sunkenWasherScrewHoles();
+        sub_sunkenWasherScrewHoles(offset = centerOffset * 1.3);
         
         // Hole for the rod with ample clearance
         translate([0, 0, -0.01]) cylinder(h = washerHeight + 0.02, d = rodClearanceDiameter);
@@ -192,7 +192,7 @@ module part_spoolCone() {
         sub_cone(begin = washerHeight, end = endHeight);
         for (angle = [0 : 90 : 360]) {
             rotate([0, 0, angle]) translate([centerOffset, 0, effectiveConeHeight - bodyScrewHoleDepth]) cylinder(d=bodyScrewHoleDiameter, h = bodyScrewHoleDepth + 0.01);
-            rotate([0, 0, angle]) translate([centerOffset, 0, -0.01]) cylinder(d = bodyScrewHoleDiameter, h = bodyScrewHoleDepth + 0.01);
+            rotate([0, 0, angle]) translate([centerOffset * 1.3, 0, -0.01]) cylinder(d = bodyScrewHoleDiameter, h = bodyScrewHoleDepth + 0.01);
         }
     }
 }
@@ -259,9 +259,9 @@ module part_bearingClampingSleeve() {
     difference() {
         union() {
             cylinder(d = rodClearanceDiameter + 4, h = 2);
-            cylinder(d = rodClearanceDiameter - 0.5, h = 5);
+            cylinder(d = rodClearanceDiameter - 0.5, h = 6);
         }
-        translate([0, 0, -0.01]) cylinder(d = rodDiameter + 0.5, h = 5.02); 
+        translate([0, 0, -0.01]) cylinder(d = rodDiameter + 0.5, h = 6.02); 
     }
 }
 
@@ -269,10 +269,10 @@ module part_bearingClampingSleeve() {
  * Sub-routine to create countersunk screw holes. Note that this module actually creates positives
  * (meaning screw heads), you will need to subtract these from whatever you want to have screw holes.
  */
-module sub_sunkenWasherScrewHoles() {
+module sub_sunkenWasherScrewHoles(offset = centerOffset) {
     for (angle = [0 : 90 : 360]) {
-        rotate([0, 0, angle]) translate([centerOffset, 0, 0]) cylinder(d = washerScrewDiameter, h = washerHeight + 0.01);
-        rotate([0, 0, angle]) translate([centerOffset, 0, 0.5]) cylinder(d2 = washerScrewDiameter, d1 = washerScrewHeadSize + 0.1, h = washerScrewDiameter * 0.7);
-        rotate([0, 0, angle]) translate([centerOffset, 0, -0.01]) cylinder(d = washerScrewHeadSize + 0.1, h = 0.52);
+        rotate([0, 0, angle]) translate([offset, 0, 0]) cylinder(d = washerScrewDiameter, h = washerHeight + 0.01);
+        rotate([0, 0, angle]) translate([offset, 0, 0.5]) cylinder(d2 = washerScrewDiameter, d1 = washerScrewHeadSize + 0.1, h = washerScrewDiameter * 0.7);
+        rotate([0, 0, angle]) translate([offset, 0, -0.01]) cylinder(d = washerScrewHeadSize + 0.1, h = 0.52);
     }
 }
