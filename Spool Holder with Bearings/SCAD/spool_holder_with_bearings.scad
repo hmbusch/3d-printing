@@ -107,6 +107,8 @@ washerScrewDiameter = 3;
  */
 washerHeight = 3;
 
+/* [hidden] */
+
 // CALCULATE SOME ADDITIONAL DEPENDENT VARIABLES
 centerOffset = bearingDiameter/2 + (coneWidthTop - bearingDiameter)/4;
 rodClearanceDiameter = max(rodDiameter * 1.5, rodDiameter + 4);
