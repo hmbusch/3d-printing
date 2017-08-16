@@ -50,8 +50,8 @@ module 2020_cable_ziptie_mount() {
 module 2020_cable_ziptie_mount_with_hfins() {
     union() {
         2020_cable_ziptie_mount();
-        translate([8, 0, -2]) cube([5, 4, 2]);
-        translate([8, 16, -2]) cube([5, 4, 2]);
+        translate([7.5, 0, -2]) cube([5, 4, 2]);
+        translate([7.5, 16, -2]) cube([5, 4, 2]);
     }
 }
 
@@ -59,8 +59,8 @@ module 2020_cable_ziptie_mount_with_vfins() {
     union() {
         2020_cable_ziptie_mount();
         translate([20, 0, 0]) rotate([0, 0, 90]) {
-            translate([8, 0, -2]) cube([5, 4, 2]);
-            translate([8, 16, -2]) cube([5, 4, 2]);
+            translate([7.5, 0, -2]) cube([5, 4, 2]);
+            translate([7.5, 16, -2]) cube([5, 4, 2]);
         }
     }
 }
