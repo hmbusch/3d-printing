@@ -1,11 +1,12 @@
 vesa_distance = 75;
 vesa_distance_half = vesa_distance / 2;
+vesa_z_offset = -1;
 screw_hole_d = 4.2;
 screw_hole_od = 7.2;
 $fn = 32;
 
 module mounting_base_body() {
-    vesa_z_offset = -1;
+
     vesa_h = 6;
     hull() {
         translate([-165/2, vesa_distance_half, vesa_z_offset]) cylinder(d=10, h=vesa_h);
@@ -53,31 +54,31 @@ module mounting_base() {
 
 module receiver_mount() {
     // left brace
-    translate([-0.5, -vesa_distance_half + 5, 0]) cube([5, vesa_distance + 10, 18]);
-    translate([-0.5, -vesa_distance_half + 5, 0]) cube([5, 50, 38]);
-    translate([-0.5, -vesa_distance_half, 0]) cube([10, 5, 38]);
+    translate([-0.5, -vesa_distance_half + 5, vesa_z_offset]) cube([5, vesa_distance + 10, 18 - vesa_z_offset]);
+    translate([-0.5, -vesa_distance_half + 5, vesa_z_offset]) cube([5, 50, 38 - vesa_z_offset]);
+    translate([-0.5, -vesa_distance_half, vesa_z_offset]) cube([10, 5, 38 - vesa_z_offset]);
     
     // right brace
-    translate([77.5, -vesa_distance_half, 0]) cube([10, 5, 38]);
-    translate([82.5, -vesa_distance_half + 5, 0]) cube([5, 50, 38]);
-    translate([82.5, -vesa_distance_half + 5, 0]) cube([5, vesa_distance + 10, 18]);
+    translate([77.5, -vesa_distance_half, vesa_z_offset]) cube([10, 5, 38 - vesa_z_offset]);
+    translate([82.5, -vesa_distance_half + 5, vesa_z_offset]) cube([5, 50, 38 - vesa_z_offset]);
+    translate([82.5, -vesa_distance_half + 5, vesa_z_offset]) cube([5, vesa_distance + 10, 18 - vesa_z_offset]);
     
     // top bar
-    translate([-0.5, 7.5, 33]) cube([88, 10, 5]);
+    translate([-0.5, 7.5, 32 - vesa_z_offset]) cube([88, 10, 5]);
 }
 
 module battery_mount() {
-    translate([-0.5, -66, 0]) cube([5, 115, 18]);
-    translate([-35.5, -66, 0]) cube([35, 5, 25]);
-    translate([-51.5, -50, 0]) cube([5, 100, 18]);
+    translate([-0.5, -66, vesa_z_offset]) cube([5, 115, 18]);
+    translate([-35.5, -66, vesa_z_offset]) cube([35, 5, 25]);
+    translate([-51.5, -50, vesa_z_offset]) cube([5, 100, 18]);
     
-    translate([-0.5, -35, 0]) cube([5, 10, 34]);
-    translate([-51.5, -35, 0]) cube([5, 10, 34]);
-    translate([-51.5, -35, 29]) cube([56, 10, 5]);
+    translate([-0.5, -35, vesa_z_offset]) cube([5, 10, 34]);
+    translate([-51.5, -35, vesa_z_offset]) cube([5, 10, 34]);
+    translate([-51.5, -35, 28 - vesa_z_offset]) cube([56, 10, 5]);
     
-    translate([-0.5, 25, 0]) cube([5, 10, 34]);
-    translate([-51.5, 25, 0]) cube([5, 10, 34]);
-    translate([-51.5, 25, 29]) cube([56, 10, 5]);
+    translate([-0.5, 25, vesa_z_offset]) cube([5, 10, 34]);
+    translate([-51.5, 25, vesa_z_offset]) cube([5, 10, 34]);
+    translate([-51.5, 25, 28 - vesa_z_offset]) cube([56, 10, 5]);
 }
 
 module velcro_hook() {
