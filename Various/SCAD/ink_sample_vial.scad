@@ -14,9 +14,15 @@
  */
  
 $fn = 128;
+fudge = 0.01;
 
-difference() {
-    cylinder(d=16.5, h = 55);
-    translate([0, 0, 1.6]) cylinder(d1 = 4, d2=14.5, h = 5);
-    translate([0, 0, 6.59]) cylinder(d = 14.5, h = 50);    
+module vial(height = 55) {
+    difference() {
+        cylinder(d=16.5, h = height);
+        translate([0, 0, 1.6]) cylinder(d1 = 4, d2=14.5, h = height * 0.1);
+        translate([0, 0, height * 0.1 + 1.6 - fudge]) cylinder(d = 14.5, h = height * 0.9);    
+    }
 }
+
+vial();
+translate([20, 0, 0]) vial(30);
