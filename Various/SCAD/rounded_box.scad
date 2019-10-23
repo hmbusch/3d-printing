@@ -4,6 +4,24 @@
  * Hendrik Busch, 2017-19 (https://github.com/hmbusch)
  *
  */
+
+/**
+ * Creates either a circle with the given diameter or a square
+ * where each side has the length of the diameter value. This module
+ * exists to save code lines and should not be used externally.
+ * 
+ * @param circle
+ *          if 'true', draw a circle, otherwise draw a square
+ * @param diameter
+ *          the measurement for the circle diameter or square side length
+ */
+module squareOrCircle(circle, diameter) {
+    if (circle) {
+        circle(d = diameter);
+    } else {
+        square([diameter, diameter], center = true);
+    }
+}
  
 /**
  * Creates a 2D-shape of a box with the given dimensions and rounded edges. 
@@ -17,17 +35,22 @@
  *          the desired height of the box (default is 10mm)
  * @param edge_radius
  *          the radius of all the edges on the xy-plane (default is 2mm)
+ * @param edges
+ *          array of four boolean values to determine which of the four
+ *          corners should be round (true) and which not (false). Order is
+ *          bottom left, bottom right, top left, top right. Default value
+ *          is true for all corners
  */  
-module box_with_round_edges_2d(width = 10, depth = 10, edge_radius = 2) {
+module box_with_round_edges_2d(width = 10, depth = 10, edge_radius = 2, edges = [true, true, true, true]) {
     if (edge_radius <= 0) {
         square([width, depth]);
     } else {
         ed = edge_radius * 2;
         translate([edge_radius, edge_radius, 0]) hull() {
-            circle(d = ed);
-            translate([width - ed, 0, 0]) circle(d = ed);
-            translate([0, depth - ed, 0]) circle(d = ed);
-            translate([width - ed, depth - ed, 0]) circle(d = ed);    
+            squareOrCircle(edges[0], ed);
+            translate([width - ed, 0, 0]) squareOrCircle(edges[1], ed);
+            translate([0, depth - ed, 0]) squareOrCircle(edges[2], ed);
+            translate([width - ed, depth - ed, 0]) squareOrCircle(edges[3], ed);    
         }
     }
 }
@@ -44,11 +67,16 @@ module box_with_round_edges_2d(width = 10, depth = 10, edge_radius = 2) {
  *          the desired height of the box (default is 10mm)
  * @param edge_radius
  *          the radius of all the edges on the xy-plane (default is 2mm)
+ * @param edges
+ *          array of four boolean values to determine which of the four
+ *          corners should be round (true) and which not (false). Order is
+ *          bottom left, bottom right, top left, top right. Default value
+ *          is true for all corners
  *
  */
-module box_with_round_edges_3d(width = 10, depth = 10, height = 10, edge_radius = 2) {
+module box_with_round_edges_3d(width = 10, depth = 10, height = 10, edge_radius = 2, edges = [true, true, true, true]) {
 	linear_extrude(height = height) {
-		box_with_round_edges_2d(width, depth, edge_radius);
+		box_with_round_edges_2d(width, depth, edge_radius, edges);
 	}
 }
 
@@ -61,10 +89,15 @@ module box_with_round_edges_3d(width = 10, depth = 10, height = 10, edge_radius 
  *          3-value-array with x, y and z dimensions (default is 10x10x10mm).
  * @param edge_radius
  *          the radius of all the edges on the xy-plane (default is 2mm)
+ * @param edges
+ *          array of four boolean values to determine which of the four
+ *          corners should be round (true) and which not (false). Order is
+ *          bottom left, bottom right, top left, top right. Default value
+ *          is true for all corners
  *
  */
-module box_with_round_edges_3d(dimensions = [10, 10, 10], edge_radius = 2) {
+module box_with_round_edges_3d(dimensions = [10, 10, 10], edge_radius = 2, edges = [true, true, true, true]) {
 	linear_extrude(height = dimensions[2]) {
-		box_with_round_edges_2d(dimensions[0], dimensions[1], edge_radius);
+		box_with_round_edges_2d(dimensions[0], dimensions[1], edge_radius, edges);
 	}
 }
