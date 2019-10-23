@@ -1,7 +1,7 @@
 /**
  * Small "library" for creating boxes with rounded edges.
  *
- * Hendrik Busch, 2017-18 (https://github.com/hmbusch)
+ * Hendrik Busch, 2017-19 (https://github.com/hmbusch)
  *
  */
  
@@ -19,12 +19,16 @@
  *          the radius of all the edges on the xy-plane (default is 2mm)
  */  
 module box_with_round_edges_2d(width = 10, depth = 10, edge_radius = 2) {
-    ed = edge_radius * 2;
-    translate([edge_radius, edge_radius, 0]) hull() {
-        circle(d = ed);
-        translate([width - ed, 0, 0]) circle(d = ed);
-        translate([0, depth - ed, 0]) circle(d = ed);
-        translate([width - ed, depth - ed, 0]) circle(d = ed);    
+    if (edge_radius <= 0) {
+        square([width, depth]);
+    } else {
+        ed = edge_radius * 2;
+        translate([edge_radius, edge_radius, 0]) hull() {
+            circle(d = ed);
+            translate([width - ed, 0, 0]) circle(d = ed);
+            translate([0, depth - ed, 0]) circle(d = ed);
+            translate([width - ed, depth - ed, 0]) circle(d = ed);    
+        }
     }
 }
  
