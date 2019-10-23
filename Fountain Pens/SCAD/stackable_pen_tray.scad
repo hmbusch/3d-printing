@@ -1,4 +1,4 @@
-use <rounded_box.scad>;
+use <../../Various/SCAD/rounded_box.scad>;
 $fn = 128;
 tolerance = 0.01;
 noOfPens = 4;
@@ -17,9 +17,9 @@ module connectors() {
     for(i=[0:3]) {
         translate([i * 10, 0, 0])
         union() {
-            box_with_round_edges(width = connectorBottom, depth = connectorBottom, height = connectorHeight / 2, edge_radius = 1);
+            box_with_round_edges_3d([connectorBottom, connectorBottom, connectorHeight / 2], 1);
             translate([(connectorBottom - connectorTop) / 2, (connectorBottom - connectorTop) / 2, connectorHeight / 2]) 
-                box_with_round_edges(width = connectorTop, depth = connectorTop, height = connectorHeight/ 2, edge_radius = 1);
+                box_with_round_edges_3d([connectorTop, connectorTop, connectorHeight/ 2], 1);
         }
     }
 }
@@ -35,7 +35,7 @@ module penTray() {
         union() {
             difference() {
                 // base box
-                box_with_round_edges(width = boxWidth, depth = maxPenLength + 2 * outerWall, height = maxPenWidth/2 + outerWall, edge_radius = 2);
+                box_with_round_edges_3d([boxWidth, maxPenLength + 2 * outerWall, maxPenWidth/2 + outerWall], 2);
                 // cutout for pens
                 for(i=[0:noOfPens-1]) {
                     // offset by pen number
@@ -52,7 +52,7 @@ module penTray() {
             ]) {
                 // solid post
                 translate(offset) 
-                    box_with_round_edges(width = connectorWidthDepth + 1, depth = connectorWidthDepth + 1, height = maxPenWidth/2 + outerWall, edge_radius = 1);
+                    box_with_round_edges_3d([connectorWidthDepth + 1, connectorWidthDepth + 1, maxPenWidth/2 + outerWall], 1);
             }
         }
         for(offset = [
@@ -64,11 +64,11 @@ module penTray() {
             // upper post cutout
             translate(offset) 
             translate([0, 0, maxPenWidth/2 - connectorCutoutHeight + outerWall + tolerance])
-                box_with_round_edges(width = connectorWidthDepth + tolerance, depth = connectorWidthDepth + tolerance, height = connectorCutoutHeight, edge_radius = 1);
+                box_with_round_edges_3d([connectorWidthDepth + tolerance, connectorWidthDepth + tolerance, connectorCutoutHeight], 1);
             // lower post cutout
             translate(offset) 
             translate([0, 0, -tolerance]) 
-                box_with_round_edges(width = connectorWidthDepth + tolerance, depth = connectorWidthDepth + tolerance, height = connectorCutoutHeight, edge_radius = 1);
+                box_with_round_edges_3d([connectorWidthDepth + tolerance, connectorWidthDepth + tolerance, connectorCutoutHeight], 1);
         }
     }
 }
