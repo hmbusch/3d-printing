@@ -1,7 +1,7 @@
 /**
  * Small "library" for creating boxes with rounded edges.
  *
- * Hendrik Busch, 2017-19 (https://github.com/hmbusch)
+ * Hendrik Busch, 2017-20 (https://github.com/hmbusch)
  *
  */
 
@@ -20,6 +20,28 @@ module squareOrCircle(circle, diameter) {
         circle(d = diameter);
     } else {
         square([diameter, diameter], center = true);
+    }
+}
+
+/**
+ * Creates either a sphere with the given diameter or a half-sphere
+ * where each side has the length of the diameter value. This module
+ * exists to save code lines and should not be used externally.
+ * 
+ * @param sphere
+ *          if 'true', draw a sphere, otherwise draw a cube
+ * @param diameter
+ *          the measurement for the sphere diameter or cube side length
+ */
+module cubeOrSphere(sphere, diameter, angle = 0) {
+    if (sphere) {
+        sphere(d = diameter);        
+    } else {
+        difference() {
+            sphere(d = diameter);
+            translate([diameter/4, 0, 0]) 
+                cube([diameter/2, diameter, diameter], true);
+        }
     }
 }
  
@@ -100,4 +122,38 @@ module box_with_round_edges_3d(dimensions = [10, 10, 10], edge_radius = 2, edges
 	linear_extrude(height = dimensions[2]) {
 		box_with_round_edges_2d(dimensions[0], dimensions[1], edge_radius, edges);
 	}
+}
+
+/**
+ * Call to create a box with rounded edges (edges will be round on all planes).
+ * Increased $fn gives you nicer looking edges but will also increase preview 
+ * and compile time drastically (there are maaaany edges in these boxes).
+ * This is still work in progress as it is rather tricky do get the box to look
+ * correctly if single corners are not round. It involves working with either
+ * spheres, half-spheres or cubes, depending on the look of connected corners. 
+ *
+ * @param dimensions
+ *          3-value-array with x, y and z dimensions (default is 10x10x10mm).
+ * @param edge_radius
+ *          the radius of all the edges on the xy-plane (default is 2mm)
+ * @param edges
+ *          three-dimensional array to control each corner individually (2x2x2 elements).
+ *          'true' gives you a round corner, 'false' a pointy one. Outer array is x, then y,
+ *          then z.
+ */
+module cube_with_round_edges(dimensions = [10, 10, 10], edge_radius = 2, edges = [ [ [true, true], [true, true] ], [ [true, true], [true, true] ] ]) {
+    dia = 2 * edge_radius;
+    hull() {
+        for(x = [0, 1]) {
+            for (y = [0, 1]) {
+                for (z = [0, 1]) {
+                    trans_x = x == 0 ? edge_radius : dimensions[0] - edge_radius;
+                    trans_y = y == 0 ? edge_radius : dimensions[0] - edge_radius;
+                    trans_z = z == 0 ? edge_radius : dimensions[0] - edge_radius;
+                    translate([trans_x, trans_y, trans_z])
+                        cubeOrSphere(edges[x][y][z], dia);
+                }
+            }
+        }
+    }
 }
