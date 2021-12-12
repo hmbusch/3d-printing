@@ -1,3 +1,5 @@
+use <Cabin-Bold-TTF.ttf>;
+
 /**
  * SAWBLADE CONTAINER
  * 
@@ -12,12 +14,12 @@
 /**
  * Defines the inner width of the container (X).
  */
-innerWidth = 25;
+innerWidth = 33;
 
 /**
  * Defines the inner depth of the container (Y).
  */
-innerDepth = 25;
+innerDepth = 33;
 
 /**
  * Defines the inner height (Z) of each half. You can calculate this value
@@ -26,7 +28,7 @@ innerDepth = 25;
  * In my case, the saw blades are 15cm long. The inner height will therefore
  * be at least (15cm/2) * 1.25 ~= 9.4cm, which I upped to 10cm.
  */
-innerHeight = 100;
+innerHeight = 91;
 
 /**
  * Adjust this to set your wall thickness. Thickness should be in multiples of
@@ -53,7 +55,7 @@ useLabel = true;
  * the label, but too small of a base and/or to much of text here may render
  * the label unprintable due to too small details.
  */
-label = "Sawblades";
+label = "Buchstabe H";
 
 // DO NOT MODIFY ANYTHING BELOW THIS LINE
 
@@ -77,7 +79,7 @@ module print() {
 
 module part_label() {
     cube([labelDimensions[2] - 0.1, labelDimensions[0] - 0.1, 0.8]);
-    translate([labelDimensions[2] * 0.1, 0.9 * ((labelDimensions[0] - 0.1) / 2), 0.8]) color("Red") linear_extrude(height = 0.8) resize([labelDimensions[2] * 0.8, 0, 0]) text(text = label, size = 10, valign = "center", font = "sans-serif");
+    translate([labelDimensions[2] * 0.1, 0.9 * ((labelDimensions[0] - 0.1) / 2), 0.8]) color("Red") linear_extrude(height = 0.8) resize([labelDimensions[2] * 0.8, 0, 0]) text(text = label, size = 10, valign = "center", font = "Liberation Sans");
 }
 
 module part_containerBottom() {
