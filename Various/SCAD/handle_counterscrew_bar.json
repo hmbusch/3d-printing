@@ -1,0 +1,10 @@
+{
+    "parameterSets": {
+        "Standardwerte des Designs": {
+            "Hole_Size": "4.2",
+            "Hole_Spacing": "118",
+            "Nut_Size": "7"
+        }
+    },
+    "fileFormatVersion": "1"
+}
