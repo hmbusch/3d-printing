@@ -148,8 +148,8 @@ module cube_with_round_edges(dimensions = [10, 10, 10], edge_radius = 2, edges =
             for (y = [0, 1]) {
                 for (z = [0, 1]) {
                     trans_x = x == 0 ? edge_radius : dimensions[0] - edge_radius;
-                    trans_y = y == 0 ? edge_radius : dimensions[0] - edge_radius;
-                    trans_z = z == 0 ? edge_radius : dimensions[0] - edge_radius;
+                    trans_y = y == 0 ? edge_radius : dimensions[1] - edge_radius;
+                    trans_z = z == 0 ? edge_radius : dimensions[2] - edge_radius;
                     translate([trans_x, trans_y, trans_z])
                         cubeOrSphere(edges[x][y][z], dia);
                 }
