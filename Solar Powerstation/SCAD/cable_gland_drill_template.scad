@@ -21,6 +21,16 @@ module template(hole_dia) {
     }
 }
 
+module plug() {
+    cylinder(d = 1.125 * cable_gland_screw_dia, h = 1);
+    cylinder(d = 0.98 * cable_gland_screw_dia, h = 2.6);
+    
+}
+
 template(cable_gland_screw_dia);
 translate([0, 2 * cable_gland_turn_dia, 0])
     template(initial_drill_size);
+
+translate([0, 5 * cable_gland_turn_dia, 0])
+    plug();
+
