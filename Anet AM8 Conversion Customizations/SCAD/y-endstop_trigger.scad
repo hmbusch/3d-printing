@@ -28,5 +28,19 @@ module size2() {
     }    
 }
 
+module size3() {
+    difference() {
+        hull() {
+            translate([6, 0, 0]) cube([20, 10, 14]);
+            translate([31, 3.5, 0]) cube([2, 3, 14]);
+        }
+        for (offset = [6, 12, 18, 25]) {
+            translate([offset + 3.5, 5, 0]) cylinder(d = 3.3, h = 14);
+            translate([offset + 3.5, 5, 7]) cylinder(d = 5, h = 7);
+        }
+    }    
+}
+
 size1();
 translate([0, 15, 0]) size2();
+translate([-6, 30, 0]) size3();
