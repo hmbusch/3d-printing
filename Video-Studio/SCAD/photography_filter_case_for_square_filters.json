@@ -1,0 +1,16 @@
+{
+    "parameterSets": {
+        "K&F Concept Nano-X Pro 100x100mm Filter w\/ Frame": {
+            "$fn": "128",
+            "Inner_Height": "5.2",
+            "Inner_Length": "141",
+            "Inner_Width": "117",
+            "Lid_Gap": "0.2",
+            "Lid_Overlap": "100",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        }
+    },
+    "fileFormatVersion": "1"
+}

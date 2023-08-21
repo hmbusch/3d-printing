@@ -1,0 +1,113 @@
+{
+    "parameterSets": {
+        "K&F Concept 82mm CPL": {
+            "$df": "64",
+            "$fn": "128",
+            "Inner_Diameter": "86",
+            "Inner_Height": "7.6",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "K&F Concept 49mm CPL": {
+            "$df": "64",
+            "$fn": "128",
+            "Inner_Diameter": "52.5",
+            "Inner_Height": "7.5",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "Rollei Premium ND Filter Set 82mm": {
+            "$fn": "128",
+            "Inner_Diameter": "85.5",
+            "Inner_Height": "16.5",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "Step-up Ring 43mm to 49mm": {
+            "$fn": "128",
+            "Inner_Diameter": "52",
+            "Inner_Height": "6.5",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "Step-up Ring 67mm to 82mm": {
+            "$fn": "128",
+            "Inner_Diameter": "85",
+            "Inner_Height": "6.5",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "Fotodiox Canon FD to EOS-M Adapter": {
+            "$fn": "128",
+            "Inner_Diameter": "65",
+            "Inner_Height": "29.2",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "K&F Concept 49mm CPL + Hoya Instant Action Ring": {
+            "$fn": "128",
+            "Inner_Diameter": "52.5",
+            "Inner_Height": "9.7",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "K&F Concept 82mm CPL + Hoya Instant Action Ring": {
+            "$fn": "128",
+            "Inner_Diameter": "86",
+            "Inner_Height": "10.2",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "f": "0.01"
+        },
+        "Standardwerte des Designs": {
+            "$fn": "128",
+            "Inner_Diameter": "86",
+            "Inner_Height": "7.6",
+            "Label_Depth": "0.8",
+            "Label_Text": " RF auf FD Adapter",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "Use_Label": "true",
+            "f": "0.01"
+        },
+        "Urth FD-to-RF Adapter": {
+            "$fn": "128",
+            "Inner_Diameter": "66",
+            "Inner_Height": "28",
+            "Label_Depth": "0.8",
+            "Label_Text": " RF auf FD Adapter",
+            "Lid_Gap": "0.1",
+            "Lid_Overlap": "75",
+            "Side_Wall_Thickness": "1",
+            "Top_Bottom_Wall_Thickness": "1.2",
+            "Use_Label": "true",
+            "f": "0.01"
+        }
+    },
+    "fileFormatVersion": "1"
+}
