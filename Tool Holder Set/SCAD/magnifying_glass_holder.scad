@@ -33,6 +33,6 @@ difference() {
 
 module screw() {
     rotate([90, 0, 0]) cylinder(d=4.2, h=10);
-    rotate([90, 0, 0]) cylinder(d=7.5, d2=4, h=3);
+    rotate([90, 0, 0]) cylinder(d1=7.5, d2=4, h=3);
 }
 

@@ -1,0 +1,34 @@
+{
+    "parameterSets": {
+        "Canon NB-6LH": {
+            "$fn": "64",
+            "Battery_Height": "7",
+            "Battery_Length": "42",
+            "Battery_Slop": "0.5",
+            "Battery_Width": "35",
+            "Contact1_Offset": "4.75",
+            "Contact2_Offset": "11.1",
+            "Contact_Cutout": "15",
+            "Contact_Height": "3.5",
+            "Spring_Diameter": "1.5",
+            "Spring_Travel": "6",
+            "Wall": "5"
+        },
+        "Canon LP-E12": {
+            "$fn": "64",
+            "Battery_Height": "13",
+            "Battery_Length": "49",
+            "Battery_Slop": "0.5",
+            "Battery_Width": "33",
+            "Contact1_Offset": "7.5",
+            "Contact2_Offset": "14",
+            "Contact_Cutout": "21",
+            "Contact_Height": "4.1",
+            "Cradle_Height_Ratio": "0.7",
+            "Spring_Diameter": "1.5",
+            "Spring_Travel": "6",
+            "Wall": "5"
+        }
+    },
+    "fileFormatVersion": "1"
+}
